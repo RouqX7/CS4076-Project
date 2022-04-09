@@ -17,15 +17,15 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     }
     else if(event->key() == Qt::Key_Space){
         //create a bullet
-        Bullet * bullet = new Bullet();
-        bullet->setPos(x(),y());
-        scene()->addItem(bullet);
+      //  Bullet * bullet = new Bullet();
+//        bullet->setPos(x(),y());
+//        scene()->addItem(bullet);
     }
 }
 
 void MyRect::spawn()
 {
     //Create an enemy
-    Enemy * enemy = new Enemy();
-    scene()->addItem(enemy);
+//    Enemy * enemy = new Enemy();
+//    scene()->addItem(enemy);
 }

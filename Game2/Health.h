@@ -3,9 +3,9 @@
 
 #include <QGraphicsTextItem>
 
-class Health: public QGraphicsItem{
+class Health: public QGraphicsTextItem{
 public:
-    Health(QGraphicsItem* parent = 0);
+    Health(QGraphicsTextItem* parent = 0);
     void decrease();
     int getHealth();
 public:

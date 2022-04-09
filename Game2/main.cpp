@@ -1,19 +1,14 @@
 #include <QApplication>
 #include "Game.h"
+#include "Battle.h"
+#include "mainwindow.h"
 
-/*
-Tutorial Topics:
--parents
--QGraphicsTextItem, setPlainText(), setFont(),setDefaultTextColor()
-*/
-
-Game * game;
+Game *game;
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
 
-    game = new Game();
-    game->show();
-
+    MainWindow W;
+    W.show();
     return a.exec();
 }

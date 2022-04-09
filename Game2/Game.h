@@ -1,22 +1,36 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef DIALOG_H
+#define DIALOG_H
 
-#include <QGraphicsView>
-#include <QWidget>
-#include <QGraphicsScene>
 #include "Player.h"
-#include "Score.h"
-#include "Health.h"
+#include "Station.h"
+#include <QDialog>
 
-class Game: public QGraphicsView{
+namespace Ui {
+class Dialog;
+}
+
+class Game : public QDialog
+{
+    Q_OBJECT
+
 public:
-    Game(QWidget * parent=0);
+    explicit Game(QWidget *parent = nullptr);
+    ~Game();
+    void move(std::string direction);
+    Player* player;
+    Station* station;
+    void updateLabel();
+private slots:
+    void on_pushButton_4_clicked();
 
-    QGraphicsScene * scene;
-    Player * player;
-    Score * score;
-    Health * health;
+    void on_pushButton_2_clicked();
 
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_clicked();
+
+private:
+    Ui::Dialog *ui;
 };
 
-#endif // GAME_H
+#endif // DIALOG_H

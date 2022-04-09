@@ -1,13 +1,13 @@
 #include "Enemy.h"
 #include <QTimer>
-#include "Game.h"
+#include "Battle.h"
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h> // rand()
 
-extern Game * game;
+extern Battle * game;
 
-Enemy::Enemy(QGraphicsItem* parent): QObject(), QGraphicsRectItem(parent){
+Enemy::Enemy(double health,int spawn, QGraphicsItem* parent): QObject(), QGraphicsRectItem(parent){
     //set random position x position
     int random_number = rand() % 700;
     setPos(random_number,0);

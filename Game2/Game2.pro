@@ -9,29 +9,46 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Actor.cpp \
+    Battle.cpp \
     Bullet.cpp \
+    Command.cpp \
+    CommandWords.cpp \
     Enemy.cpp \
     Game.cpp \
     Health.cpp \
+    Item.cpp \
     MyRect.cpp \
+    Parser.cpp \
     Player.cpp \
+    PowerUp.cpp \
+    Room.cpp \
     Score.cpp \
-    actor.cpp \
+    Station.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    Actor.h \
+    Battle.h \
     Bullet.h \
+    Command.h \
+    CommandWord.h \
     Enemy.h \
     Game.h \
     Health.h \
+    Item.h \
     MyRect.h \
+    Parser.h \
     Player.h \
+    PowerUp.h \
+    Room.h \
     Score.h \
-    actor.h \
+    Station.h \
     mainwindow.h
 
 FORMS += \
+    Game.ui \
     mainwindow.ui
 
 # Default rules for deployment.

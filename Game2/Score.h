@@ -3,7 +3,7 @@
 
 #include <QGraphicsTextItem>
 
-class Score: public QGraphicsItem{
+class Score: public QGraphicsTextItem{
 public:
     Score(QGraphicsItem* parent = 0);
     void increase();

@@ -1,11 +1,12 @@
 #include "Player.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
+#include <qdebug.h>
 #include "Bullet.h"
 #include "Enemy.h"
 
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){
-
+qDebug()<<"rett";
 }
 
 void Player::keyPressEvent(QKeyEvent *event){
@@ -21,14 +22,10 @@ void Player::keyPressEvent(QKeyEvent *event){
     // shoot with the spacebar
     else if (event->key() == Qt::Key_Space){
         // create a bullet
-        Bullet * bullet = new Bullet();
-        bullet->setPos(x(),y());
+
+        this->bullet->setPos(x(),y());
         scene()->addItem(bullet);
     }
 }
 
-void Player::spawn(){
-    // create an enemy
-    Enemy * enemy = new Enemy();
-    scene()->addItem(enemy);
-}
+
