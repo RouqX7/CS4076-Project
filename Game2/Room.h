@@ -1,13 +1,14 @@
 #ifndef ROOM_H_
 #define ROOM_H_
 
+
 #include <map>
 #include <string>
 #include <vector>
 #include "item.h"
 #include "Actor.h"
 #include "Enemy.h"
-
+#include "Battle.h"
 
 using namespace std;
 using std::vector;
@@ -24,12 +25,13 @@ private:
 public:
     int numberOfItems();
      string description; string id;
-    Room(string id, string description,QGraphicsItem * parent=0);
+    Room(string id, string description, QGraphicsItem * parent=0);
     void setExits(Room *north, Room *east, Room *south, Room *west);
     string shortDescription();
     string longDescription();
     Room* nextRoom(string direction);
-    Enemy* EnemyinRoom;
+    Enemy* EnemyinRoom = nullptr;
+    Battle* battle = nullptr;
     void addItem(Item *inItem);
     void addActor(Actor *InActor);
     string displayItem();

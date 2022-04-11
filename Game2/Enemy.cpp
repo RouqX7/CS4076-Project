@@ -13,7 +13,7 @@ Enemy::Enemy(double health,int spawn, QGraphicsItem* parent): QObject(), QGraphi
     setPos(random_number,0);
 
     // draw the rect
-    setPixmap(QPixmap(":/images/enemy.png")); //same size as the player
+    setPixmap(QPixmap(":/images/Enemyfirst.png")); //same size as the player
 
     // connect
     QTimer * timer = new QTimer(this);

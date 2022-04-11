@@ -2,9 +2,18 @@
 #include "Command.h"
 #include "qdebug.h"
 #include <QGraphicsScene>
+#include <qtimer.h>
 Room::Room(string id, string description,QGraphicsItem *parent) : QGraphicsRectItem(parent) {
     this->description = description;
     this->id = id;
+    if(this->battle!=nullptr){
+        qDebug()<<"Error in";
+        qDebug()<<QString::fromStdString(this->id);
+
+        QTimer * timer = new QTimer();
+        QObject::connect(timer,SIGNAL(timeout()),this,SLOT(spawnEnemy()));
+        timer->start(2000);
+    }
 }
 
 void Room::setExits(Room *north, Room *east, Room *south, Room *west) {
@@ -71,10 +80,12 @@ int Room::numberOfItems() {
 void Room::spawnEnemy(){
     // create an enemy
      qDebug()<<"SPAWNED ";
-    qDebug()<<EnemyinRoom->health;
+
     if(EnemyinRoom != nullptr)
-        if( scene()!=nullptr)
-                scene()->addItem(EnemyinRoom);
+        if( battle!=nullptr)
+                battle->scene->addItem(EnemyinRoom);
+    // spawn enemies
+
 }
 int Room::isItemInRoom(string inString)
 {

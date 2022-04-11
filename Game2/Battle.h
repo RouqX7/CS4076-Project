@@ -8,19 +8,18 @@
 #include "Player.h"
 #include "Score.h"
 #include "Health.h"
-#include "Room.h"
+
 
 class Battle: public QGraphicsView{
     Q_OBJECT
 public:
-    Battle( Room* room, QWidget* parent=0 );
+    Battle(QWidget* parent=0 );
 
     QGraphicsScene * scene;
     Player * player;
     Enemy* enemy;
     Score * score;
     Health * health;
-    Room* room;
 
 };
 

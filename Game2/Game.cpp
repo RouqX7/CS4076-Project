@@ -21,10 +21,7 @@ void Game::move(std::string direction){
     updateLabel();
     Enemy* enemy = station->currentRoom->EnemyinRoom;
     if(enemy!= nullptr){
-        Battle* battle = new Battle(station->currentRoom , this);
-        battle->enemy=enemy;//deference player and enemy
-       // battle->setModal(true);
-        battle->show();
+       station->currentRoom->battle->show();
     }
 
 }

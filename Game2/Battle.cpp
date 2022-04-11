@@ -4,7 +4,7 @@
 #include <QFont>
 #include "Enemy.h"
 
-Battle::Battle( Room* room, QWidget *parent){
+Battle::Battle(QWidget *parent){
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -32,11 +32,7 @@ Battle::Battle( Room* room, QWidget *parent){
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
-    this->room = room;
-    // spawn enemies
-    QTimer * timer = new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()),room,SLOT(spawnEnemy()));
-    timer->start(2000);
+
 
     //show();
 }

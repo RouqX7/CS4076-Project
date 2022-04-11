@@ -56,17 +56,21 @@ qDebug()<<"your nan2";
     c = new Room("c",this->story["c"]);
     qDebug()<<"your nan3";
     c->EnemyinRoom = enemy;
+    c->battle=new Battle();
     qDebug()<<"your nan4";
 
 
     d = new Room("d",this->story["d"]);
     d->addItem(items[4]);
    d->EnemyinRoom = enemy2;
+   d->battle=new Battle();
 
     e  = new Room("e",this->story["e"]);
     qDebug()<<"your nan5";
     f  = new Room("f",this->story["f"]);
     f->EnemyinRoom = enemy3;
+    f->battle=new Battle();
+
 
      qDebug()<<f->EnemyinRoom->health;
     x->setExits(d,c,b,a);
