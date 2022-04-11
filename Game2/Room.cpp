@@ -70,8 +70,11 @@ int Room::numberOfItems() {
 }
 void Room::spawnEnemy(){
     // create an enemy
+     qDebug()<<"SPAWNED ";
+    qDebug()<<EnemyinRoom->health;
     if(EnemyinRoom != nullptr)
-    scene()->addItem(EnemyinRoom);
+        if( scene()!=nullptr)
+                scene()->addItem(EnemyinRoom);
 }
 int Room::isItemInRoom(string inString)
 {

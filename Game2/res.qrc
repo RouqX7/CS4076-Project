@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>SpaceBackGround.jpg</file>
+        <file>bulletlazer.jpg</file>
+        <file>Enemyfirst.png</file>
+        <file>Enemy2nd.png</file>
+        <file>mainSpaceship.png</file>
+    </qresource>
+</RCC>

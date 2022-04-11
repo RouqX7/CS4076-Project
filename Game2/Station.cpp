@@ -37,9 +37,9 @@ void Station:: spawnItems(vector<T> &items){
 }
 
 void Station:: createRooms(){
-    Enemy* enemy = new Enemy(1,10);
-    Enemy* enemy2 = new Enemy(1.2,15);
-    Enemy* enemy3 = new Enemy(1.5,20);
+    Enemy* enemy = new Enemy(1.0f,10);
+    Enemy* enemy2 = new Enemy(1.2f,15);
+    Enemy* enemy3 = new Enemy(1.5f,20);
 
     qDebug()<<"your nan";
     vector<Item*> items;
@@ -68,6 +68,7 @@ qDebug()<<"your nan2";
     f  = new Room("f",this->story["f"]);
     f->EnemyinRoom = enemy3;
 
+     qDebug()<<f->EnemyinRoom->health;
     x->setExits(d,c,b,a);
 
     a->setExits(nullptr,x,nullptr,nullptr);

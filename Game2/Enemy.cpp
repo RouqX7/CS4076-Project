@@ -7,13 +7,13 @@
 
 extern Battle * game;
 
-Enemy::Enemy(double health,int spawn, QGraphicsItem* parent): QObject(), QGraphicsRectItem(parent){
+Enemy::Enemy(double health,int spawn, QGraphicsItem* parent): QObject(), QGraphicsPixmapItem(parent){
     //set random position x position
     int random_number = rand() % 700;
     setPos(random_number,0);
 
     // draw the rect
-    setRect(0,0,100,100); //same size as the player
+    setPixmap(QPixmap(":/images/enemy.png")); //same size as the player
 
     // connect
     QTimer * timer = new QTimer(this);
@@ -21,15 +21,18 @@ Enemy::Enemy(double health,int spawn, QGraphicsItem* parent): QObject(), QGraphi
 
     timer->start(50);
 }
-
+Enemy::~Enemy(){
+  //  delete this;
+}
 void Enemy::move(){
     // move enemy down
     setPos(x(),y()+ 5);
     //destroy enemy when it goes out of the screen
     if (pos().y() > 600){
         //decrease the health
-        game->health->decrease();
+        //game->health->decrease();
 
+        if(scene()!=nullptr)
         scene()->removeItem(this);
         delete this;
 

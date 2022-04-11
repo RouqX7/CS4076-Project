@@ -5,9 +5,12 @@
 #include "Bullet.h"
 #include "Enemy.h"
 
-Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){
+Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
 qDebug()<<"rett";
+    //set graphic
+    setPixmap(QPixmap(":/images/mainSpaceship.png"));
 }
+
 
 void Player::keyPressEvent(QKeyEvent *event){
     // move the player left and right
