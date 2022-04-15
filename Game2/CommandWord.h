@@ -1,20 +1,22 @@
-#ifndef COMMAND_H_
-#define COMMAND_H_
+#ifndef COMMANDWORD_H_
+#define COMMANDWORD_H_
 
+#include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
-class Command {
+class CommandWord {
 private:
-    string commandWord;
-    string secondWord;
+    //Define a static vector for our valid command words.
+    //We'll populate this in the class constructor
+    static vector<string> validCommands;
 
 public:
-    Command(string firstWord, string secondWord);
-    string getCommandWord();
-    string getSecondWord();
-    bool isUnknown();
-    bool hasSecondWord();
+    CommandWord();
+    bool isCommand(string aString);
+    void showAll();
 };
 
-#endif /*COMMAND_H_*/
+
+#endif /*COMMANDWORD_H_*/

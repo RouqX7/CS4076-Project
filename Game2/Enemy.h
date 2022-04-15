@@ -9,10 +9,13 @@
 class Enemy: public QObject, public   QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    double health;
-    int spawn;
+    double health = 1;
+    int spawn = 50;
     Enemy(double health,int spawn,QGraphicsItem* parent = 0);
+    Enemy(const Enemy& self){}
    ~Enemy();
+    //operator overload
+    Enemy& operator=(const Enemy& self) {}
 public slots:
     void move();
 };

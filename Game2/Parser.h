@@ -2,11 +2,11 @@
 #define PARSER_H_
 
 #include "Command.h"
-#include "CommandWords.h"
+#include "CommandWord.h"
 
 class Parser {
 private:
-    CommandWords *commands;
+    CommandWord *commands;
 
 public:
     Parser();

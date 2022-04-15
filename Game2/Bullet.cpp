@@ -7,17 +7,18 @@
 
 extern Battle * game; // there is an external global object called game
 
-Bullet::Bullet(string img, string desc,QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent),Item(img,desc){
+Bullet::Bullet(string img, string desc,int dmg, QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent),Item(img,desc){
     // drew the graphics
-    setPixmap(QPixmap(":/images/bulletlazer.jpg"));
+   setPixmap(QPixmap(":/images/lastLazer.png"));
 
     // connect
-    QTimer * timer = new QTimer(this);
-    //connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
+}
+void Bullet::fire(){
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 }
-
 void Bullet::move(){
     //get a list of all the items currently colliding with this bullet
     QList<QGraphicsItem *>colliding_items = collidingItems();
@@ -33,9 +34,9 @@ void Bullet::move(){
               Enemy* en = dynamic_cast<Enemy*>(colliding_items[i]);
               en->health -= this->value;
               if(en->health <= 0){
-                   scene()->removeItem(colliding_items[i]);
+                   game->scene->removeItem(colliding_items[i]);
               }
-            scene()->removeItem(this);
+              game->scene->removeItem(this);
             //delete them both off the heap to save memory
 
             if(en->health <= 0){
@@ -55,8 +56,11 @@ void Bullet::move(){
     setPos(x(),y()-10);
      // if the bullet is off the screen, destroy it
     if (pos().y() < 0){
-        scene()->removeItem(this);
+        timer->stop();
+         //game->scene->removeItem(this);
+
         delete this;
+
 
     }
 

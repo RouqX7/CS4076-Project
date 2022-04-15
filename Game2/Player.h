@@ -7,11 +7,13 @@
 #include <QObject>
 #include <QGraphicsItem>
 
+
+
 class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Bullet* bullet;
-    Player(QGraphicsItem * parent=0);
+    Bullet* bullet = nullptr;
+    explicit Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
 
 };

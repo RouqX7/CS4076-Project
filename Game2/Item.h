@@ -11,11 +11,12 @@ protected:
     string description;
     string longDescription;
     int weightGrams;
-    string img;
+
     float value;
     bool weaponCheck;
 
 public:
+    string img;
     Item (string description, int inWeight, float inValue);
     Item (string description, string img);
     string getShortDescription();

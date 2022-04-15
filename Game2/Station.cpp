@@ -2,7 +2,8 @@
 #include "PowerUp.h"
 #include "qdebug.h"
 
-Station::Station()
+extern Battle* game;
+Station::Station(Player& player)
 {
     qDebug()<<"your nan5";
     this->story.insert(pair<string,string>("x","Welcome to Stargate Station, you are a promising lietuenant rising up the ranks"));
@@ -13,7 +14,7 @@ Station::Station()
     this->story.insert(pair<string,string>("e","A new PowerUp you are now becoming Stargate's strongest warrior."));
     this->story.insert(pair<string,string>("f","This is your final mission, You have conquered all the missions it is time to finally win this war."));
 
-
+       this->player = &player;
     createRooms();
 }
 template<typename T>
@@ -37,9 +38,9 @@ void Station:: spawnItems(vector<T> &items){
 }
 
 void Station:: createRooms(){
-    Enemy* enemy = new Enemy(1.0f,10);
-    Enemy* enemy2 = new Enemy(1.2f,15);
-    Enemy* enemy3 = new Enemy(1.5f,20);
+    Enemy* enemy = new Enemy(1.0f,20);
+    Enemy* enemy2 = new Enemy(1.2f,50);
+    Enemy* enemy3 = new Enemy(1.5f,70);
 
     qDebug()<<"your nan";
     vector<Item*> items;
@@ -56,20 +57,26 @@ qDebug()<<"your nan2";
     c = new Room("c",this->story["c"]);
     qDebug()<<"your nan3";
     c->EnemyinRoom = enemy;
-    c->battle=new Battle();
+    c->battle=new Battle(*player);
+    game = c->battle;
+
+
     qDebug()<<"your nan4";
 
 
     d = new Room("d",this->story["d"]);
     d->addItem(items[4]);
    d->EnemyinRoom = enemy2;
-   d->battle=new Battle();
+   d->battle=new Battle(*player);
+   game = d->battle;
 
     e  = new Room("e",this->story["e"]);
     qDebug()<<"your nan5";
     f  = new Room("f",this->story["f"]);
     f->EnemyinRoom = enemy3;
-    f->battle=new Battle();
+    f->battle=new Battle(*player);
+    game = f->battle;
+
 
 
      qDebug()<<f->EnemyinRoom->health;

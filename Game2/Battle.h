@@ -13,13 +13,13 @@
 class Battle: public QGraphicsView{
     Q_OBJECT
 public:
-    Battle(QWidget* parent=0 );
-
+    Battle(Player& player,QWidget* parent=0 );
     QGraphicsScene * scene;
     Player * player;
     Enemy* enemy;
     Score * score;
     Health * health;
+
 
 };
 

@@ -23,6 +23,7 @@ private:
 
 
 public:
+    QTimer * timer;
     int numberOfItems();
      string description; string id;
     Room(string id, string description, QGraphicsItem * parent=0);
@@ -30,6 +31,7 @@ public:
     string shortDescription();
     string longDescription();
     Room* nextRoom(string direction);
+    void setupEnemySpawn()const;
     Enemy* EnemyinRoom = nullptr;
     Battle* battle = nullptr;
     void addItem(Item *inItem);

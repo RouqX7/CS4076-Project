@@ -13,7 +13,7 @@ SOURCES += \
     Battle.cpp \
     Bullet.cpp \
     Command.cpp \
-    CommandWords.cpp \
+    CommandWord.cpp \
     Enemy.cpp \
     Game.cpp \
     Health.cpp \

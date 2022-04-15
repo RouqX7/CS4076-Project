@@ -6,18 +6,23 @@
 Room::Room(string id, string description,QGraphicsItem *parent) : QGraphicsRectItem(parent) {
     this->description = description;
     this->id = id;
+    this->timer = new QTimer();
+
+}
+void Room::setupEnemySpawn()const{
     if(this->battle!=nullptr){
         qDebug()<<"Error in";
         qDebug()<<QString::fromStdString(this->id);
 
-        QTimer * timer = new QTimer();
+
         QObject::connect(timer,SIGNAL(timeout()),this,SLOT(spawnEnemy()));
         timer->start(2000);
+    }else{
+         qDebug()<<"Battle is null";
     }
 }
-
 void Room::setExits(Room *north, Room *east, Room *south, Room *west) {
-    if (north != nullptr)
+   if (north != nullptr)
         exits["north"] = north;
     if (east != nullptr)
         exits["east"] = east;
@@ -81,9 +86,22 @@ void Room::spawnEnemy(){
     // create an enemy
      qDebug()<<"SPAWNED ";
 
-    if(EnemyinRoom != nullptr)
-        if( battle!=nullptr)
-                battle->scene->addItem(EnemyinRoom);
+
+    if(EnemyinRoom != nullptr){
+        qDebug()<<EnemyinRoom->spawn;
+         Enemy* e = new Enemy(EnemyinRoom->health,EnemyinRoom->spawn);
+         EnemyinRoom->spawn--;
+         if(EnemyinRoom->spawn <= 0 ){
+             timer->stop();
+             delete e;
+              qDebug()<<"Ended ---";
+         }else{
+             if( battle!=nullptr)
+                 battle->scene->addItem(e);
+         }
+
+    }
+
     // spawn enemies
 
 }

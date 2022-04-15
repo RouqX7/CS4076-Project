@@ -1,14 +1,18 @@
 #include "Game.h"
 #include "Battle.h"
 #include "ui_Game.h"//.h"
+#include "Bullet.h"
+#include "PowerUp.h"
 
 Game::Game(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    station = new Station();
     player = new Player();
+    player->bullet = new PowerUp(":/images/bulletlazer.jpg","",0.5);
+    station = new Station(*player);
+
     updateLabel();
 }
 
@@ -22,6 +26,7 @@ void Game::move(std::string direction){
     Enemy* enemy = station->currentRoom->EnemyinRoom;
     if(enemy!= nullptr){
        station->currentRoom->battle->show();
+        station->currentRoom->setupEnemySpawn();
     }
 
 }

@@ -14,7 +14,8 @@ public:
       void goRoom(const string& direction);
       template<typename T>
       void spawnItems(vector<T>&);
-      explicit Station();
+      explicit Station(Player& player);
+      Player* player;
       Room *currentRoom;
 };
 

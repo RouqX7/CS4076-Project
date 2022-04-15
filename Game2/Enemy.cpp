@@ -9,12 +9,16 @@ extern Battle * game;
 
 Enemy::Enemy(double health,int spawn, QGraphicsItem* parent): QObject(), QGraphicsPixmapItem(parent){
     //set random position x position
+
+    this->health = health;
+    this->spawn = spawn;
+
     int random_number = rand() % 700;
     setPos(random_number,0);
 
     // draw the rect
     setPixmap(QPixmap(":/images/Enemyfirst.png")); //same size as the player
-
+    setScale(0.15);
     // connect
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));

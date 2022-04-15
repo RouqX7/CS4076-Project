@@ -6,10 +6,12 @@
 
 class PowerUp : public Bullet
 {
-private: double dmg;
+private:
 
 public:
+    double dmg;
     PowerUp(const string& img, string name, const double& dmg);
 };
 
 #endif // POWERUP_H
+

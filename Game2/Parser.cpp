@@ -1,7 +1,7 @@
 #include "Parser.h"
 
 Parser::Parser() {
-    commands = new CommandWords();
+    commands = new CommandWord();
 }
 
 Command* Parser::getCommand() {

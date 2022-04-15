@@ -29,3 +29,4 @@ void MyRect::spawn()
 //    Enemy * enemy = new Enemy();
 //    scene()->addItem(enemy);
 }
+

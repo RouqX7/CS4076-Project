@@ -1,11 +1,11 @@
-#include "CommandWords.h"
+#include "CommandWord.h"
 
-vector<string> CommandWords::validCommands;
+vector<string> CommandWord::validCommands;
 
 /**
  * Constructor - initialise the command words.
  */
-CommandWords::CommandWords() {
+CommandWord::CommandWord() {
     // Populate the vector if we haven't already.
     if (validCommands.empty()) {
         validCommands.push_back("go");
@@ -21,7 +21,7 @@ CommandWords::CommandWords() {
  * Check whether a given String is a valid command word.
  * Return true if it is, false if it isn't.
  **/
-bool CommandWords::isCommand(string aString) {
+bool CommandWord::isCommand(string aString) {
     for (unsigned int i = 0; i < validCommands.size(); i++)
     {
         if (validCommands[i].compare(aString) == 0)
@@ -34,7 +34,7 @@ bool CommandWords::isCommand(string aString) {
 /*
  * Print all valid commands to System.out.
  */
-void CommandWords::showAll() {
+void CommandWord::showAll() {
     //Loops through validCommands and prints each to the screen.
     for (unsigned int i = 0; i < validCommands.size(); i++)
     {
